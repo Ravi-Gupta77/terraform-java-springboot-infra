@@ -1,4 +1,22 @@
 # terraform-java-springboot-infra
+This terraform code create the infrastructure for java springboot app.
+
+The terraform plan & apply is done via ci/cd where github action uses
+oidc role to assume aws short lived credentials.
+Pipeline is triggered via qa, main branch
+
+## Incase of local testing
+Terraform plan
+```terraform plan -var-file=environment/terraform.tfvars```
+
+Terraform apply
+```terraform apply -var-file=environment/terraform.tfvars```
+
+### Resources created
+- EKS Cluster
+- VPC
+- EC2
+- ci/cd pipeline to deploy resources into aws
 
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
