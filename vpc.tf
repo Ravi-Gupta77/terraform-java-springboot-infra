@@ -3,9 +3,9 @@
 ################################################################################
 
 module "vpc" {
-  source      = "terraform-aws-modules/vpc/aws"
-  version     = "5.19.0"
-  
+  source  = "terraform-aws-modules/vpc/aws"
+  version = "5.19.0"
+
   create_vpc  = local.vpc.create_vpc
   enable_ipv6 = local.vpc.enable_ipv6
   name        = local.vpc.name

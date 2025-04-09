@@ -44,7 +44,7 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v3
 
-      - name: Sets env vars 
+      - name: Sets env vars
         run: |
           echo "awsIamRole=arn:aws:iam::${{ env.awsAccountNumber }}:role/${{ secrets.OIDC_ROLE }}" >> $GITHUB_ENV
           echo "terraformBucket=${{ env.backendTerraformBucket }}" >> $GITHUB_ENV
@@ -99,9 +99,9 @@ jobs:
         id: init
         run: |
           cd ${{ env.terraformWorkDir }}
-          terraform init -backend-config="bucket=${{ env.backendTerraformBucket }}" \ 
+          terraform init -backend-config="bucket=${{ env.backendTerraformBucket }}" \
           -backend-config="dynamodb_table=${{ env.backendTerraformDynamo }}" \
-          -backend-config="key=${{ env.terraformS3Key}}" \ 
+          -backend-config="key=${{ env.terraformS3Key}}" \
           -backend-config="region=${{ env.awsRegion }}"
 
       - name: Terraform Plans
