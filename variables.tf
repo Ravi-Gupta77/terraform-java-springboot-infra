@@ -8,7 +8,7 @@ variable "tags" {
   description = "tags for resources"
   type        = map(string)
   default = {
-    "Name"      = "grafana-test"
+    "Name"      = "spring-boot-app"
     "terraform" = true
   }
 }

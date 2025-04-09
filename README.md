@@ -58,7 +58,7 @@ Terraform apply
 | <a name="input_one_nat_gateway_per_az"></a> [one\_nat\_gateway\_per\_az](#input\_one\_nat\_gateway\_per\_az) | Should be true if you want only one NAT Gateway per availability zone. Requires `var.azs` to be set, and the number of `public_subnets` created to be greater than or equal to the number of availability zones specified in `var.azs` | `bool` | `false` | no |
 | <a name="input_region"></a> [region](#input\_region) | AWS region | `string` | `"ap-south-1"` | no |
 | <a name="input_single_nat_gateway"></a> [single\_nat\_gateway](#input\_single\_nat\_gateway) | Should be true if you want to provision a single shared NAT Gateway across all of your private networks | `bool` | `false` | no |
-| <a name="input_tags"></a> [tags](#input\_tags) | tags for resources | `map(string)` | <pre>{<br>  "Name": "grafana-test",<br>  "terraform": true<br>}</pre> | no |
+| <a name="input_tags"></a> [tags](#input\_tags) | tags for resources | `map(string)` | <pre>{<br>  "Name": "spring-boot-app",<br>  "terraform": true<br>}</pre> | no |
 
 ## Outputs
 
