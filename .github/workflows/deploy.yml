@@ -12,14 +12,6 @@ on:
       - 'README.md'
       - 'helm/**'
 
-  pull_request:
-    branches:
-      - main
-      - qa
-    paths-ignore:
-      - 'README.md'
-      - 'helm/**'
-
 permissions:
   id-token: write
   contents: read
