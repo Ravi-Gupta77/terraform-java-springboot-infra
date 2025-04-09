@@ -3,19 +3,20 @@
 ################################################################################
 
 module "eks" {
-  source          = "terraform-aws-modules/eks/aws"
-  version         = "~> 18.0"
-  cluster_name    = "my-eks-cluster"
-  cluster_version = "1.24"
+  source  = "terraform-aws-modules/eks/aws"
+  version = "20.35"
+
+  cluster_name    = "java-springboot-app"
+  cluster_version = "1.27"
   vpc_id          = module.vpc.vpc_id
-  subnet_ids      = module.vpc.private_subnets
+  subnet_ids      = element(module.vpc.private_subnets, 0)
 
   eks_managed_node_groups = {
     main = {
-      min_size       = 2
-      max_size       = 4
+      min_size       = 1
+      max_size       = 2
       desired_size   = 2
-      instance_types = ["t3.medium"]
+      instance_types = ["t3.small"]
     }
   }
 }

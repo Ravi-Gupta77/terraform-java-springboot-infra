@@ -14,6 +14,7 @@ module "vpc" {
   azs             = local.vpc.azs
   private_subnets = [for k, v in local.vpc.azs : cidrsubnet(local.vpc.cidr, 4, k)]
   public_subnets  = [for k, v in local.vpc.azs : cidrsubnet(local.vpc.cidr, 8, k + 48)]
+  intra_subnets   = [for k, v in local.vpc.azs : cidrsubnet(local.vpc.cidr, 8, k + 52)]
 
   create_flow_log_cloudwatch_iam_role             = false
   create_flow_log_cloudwatch_log_group            = false
