@@ -19,4 +19,6 @@ module "eks" {
       instance_types = ["t3.small"]
     }
   }
+
+  tags = local.tags
 }
