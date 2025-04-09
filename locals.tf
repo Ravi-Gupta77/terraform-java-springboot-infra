@@ -17,5 +17,8 @@ locals {
     one_nat_gateway_per_az  = var.one_nat_gateway_per_az
   }
 
-
+  ecr = {
+    repository_name         = "${var.env}-java-springboot"
+    create_lifecycle_policy = true
+  }
 }
