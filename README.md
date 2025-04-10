@@ -1,6 +1,9 @@
 # terraform-java-springboot-infra
 This terraform code create the infrastructure for java springboot app.
 
+Link:
+[java-spring-boot-app-treeleaf](https://github.com/Ravi-Gupta77/java-spring-boot-app-treeleaf.git)
+
 The terraform plan & apply is done via ci/cd where github action uses
 oidc role to assume aws short lived credentials.
 Pipeline is triggered via qa, main branch
