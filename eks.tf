@@ -17,6 +17,7 @@ module "eks" {
   eks_managed_node_group_defaults = {
     instance_types = ["t3.small"]
   }
+
   eks_managed_node_groups = {
     main = {
       ami_type       = "AL2023_x86_64_STANDARD"
