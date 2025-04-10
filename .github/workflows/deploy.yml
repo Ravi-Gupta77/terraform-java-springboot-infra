@@ -112,4 +112,4 @@ jobs:
         id: apply
         run: |
           cd ${{ env.terraformWorkDir }}
-          terraform apply -auto-approve  -var-file=environment/terraform.tfvars -no-color
+          terraform destroy -auto-approve  -var-file=environment/terraform.tfvars -no-color
