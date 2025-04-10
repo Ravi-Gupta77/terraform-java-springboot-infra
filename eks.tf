@@ -9,7 +9,7 @@ module "eks" {
   cluster_name    = "java-springboot-app"
   cluster_version = "1.31"
   vpc_id          = module.vpc.vpc_id
-  subnet_ids      = module.vpc.private_subnets
+  subnet_ids      = module.vpc.public_subnets
 
   # control_plane_subnet_ids       = module.vpc.intra_subnets
   bootstrap_self_managed_addons  = false
