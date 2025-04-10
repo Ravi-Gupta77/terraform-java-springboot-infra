@@ -9,7 +9,7 @@ locals {
     enable_ipv6 = false
     name        = "${var.env}-java-springboot"
     cidr        = var.cidr
-    azs         = slice(data.aws_availability_zones.available.names, 0, 2)
+    azs         = slice(data.aws_availability_zones.available.names, 0, 3)
 
     map_public_ip_on_launch = var.map_public_ip_on_launch
     enable_nat_gateway      = var.enable_nat_gateway
@@ -20,5 +20,13 @@ locals {
   ecr = {
     repository_name         = "${var.env}-java-springboot"
     create_lifecycle_policy = true
+  }
+
+  eks = {
+    cluster_name    = "${var.env}-java-springboot-app"
+    cluster_version = var.cluster_version
+
+    cluster_endpoint_public_access           = var.cluster_endpoint_public_access
+    enable_cluster_creator_admin_permissions = var.enable_cluster_creator_admin_permissions
   }
 }

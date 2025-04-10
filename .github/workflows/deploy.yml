@@ -10,15 +10,7 @@ on:
       - main
     paths-ignore:
       - 'README.md'
-      - 'helm/**'
-
-  pull_request:
-    branches:
-      - main
-      - qa
-    paths-ignore:
-      - 'README.md'
-      - 'helm/**'
+      - '*.png'
 
 permissions:
   id-token: write

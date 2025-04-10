@@ -1,4 +1,28 @@
 # terraform-java-springboot-infra
+This terraform code create the infrastructure for java springboot app.
+
+Link:
+[java-spring-boot-app-treeleaf](https://github.com/Ravi-Gupta77/java-spring-boot-app-treeleaf.git)
+
+The terraform plan & apply is done via ci/cd where github action uses
+oidc role to assume aws short lived credentials.
+Pipeline is triggered via qa, main branch
+
+## Incase of local testing
+Terraform plan
+```terraform plan -var-file=environment/terraform.tfvars```
+
+Terraform apply
+```terraform apply -var-file=environment/terraform.tfvars```
+
+### Resources created
+- EKS Cluster
+- VPC
+- EC2
+- ci/cd pipeline to deploy resources into aws
+
+### Screenshots
+
 
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
@@ -34,13 +58,16 @@
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_cidr"></a> [cidr](#input\_cidr) | (Optional) The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4_netmask_length` & `ipv4_ipam_pool_id` | `string` | `"10.0.0.0/24"` | no |
+| <a name="input_cluster_endpoint_public_access"></a> [cluster\_endpoint\_public\_access](#input\_cluster\_endpoint\_public\_access) | Indicates whether or not the Amazon EKS public API server endpoint is enabled | `bool` | `false` | no |
+| <a name="input_cluster_version"></a> [cluster\_version](#input\_cluster\_version) | Kubernetes `<major>.<minor>` version to use for the EKS cluster (i.e.: `1.27`) | `string` | `null` | no |
+| <a name="input_enable_cluster_creator_admin_permissions"></a> [enable\_cluster\_creator\_admin\_permissions](#input\_enable\_cluster\_creator\_admin\_permissions) | Indicates whether or not to add the cluster creator (the identity used by Terraform) as an administrator via access entry | `bool` | `false` | no |
 | <a name="input_enable_nat_gateway"></a> [enable\_nat\_gateway](#input\_enable\_nat\_gateway) | Should be true if you want to provision NAT Gateways for each of your private networks | `bool` | `false` | no |
 | <a name="input_env"></a> [env](#input\_env) | Name of the environment | `string` | `"qa"` | no |
 | <a name="input_map_public_ip_on_launch"></a> [map\_public\_ip\_on\_launch](#input\_map\_public\_ip\_on\_launch) | Specify true to indicate that instances launched into the subnet should be assigned a public IP address. Default is `false` | `bool` | `false` | no |
 | <a name="input_one_nat_gateway_per_az"></a> [one\_nat\_gateway\_per\_az](#input\_one\_nat\_gateway\_per\_az) | Should be true if you want only one NAT Gateway per availability zone. Requires `var.azs` to be set, and the number of `public_subnets` created to be greater than or equal to the number of availability zones specified in `var.azs` | `bool` | `false` | no |
 | <a name="input_region"></a> [region](#input\_region) | AWS region | `string` | `"ap-south-1"` | no |
 | <a name="input_single_nat_gateway"></a> [single\_nat\_gateway](#input\_single\_nat\_gateway) | Should be true if you want to provision a single shared NAT Gateway across all of your private networks | `bool` | `false` | no |
-| <a name="input_tags"></a> [tags](#input\_tags) | tags for resources | `map(string)` | <pre>{<br>  "Name": "grafana-test",<br>  "terraform": true<br>}</pre> | no |
+| <a name="input_tags"></a> [tags](#input\_tags) | tags for resources | `map(string)` | <pre>{<br>  "Name": "spring-boot-app",<br>  "terraform": true<br>}</pre> | no |
 
 ## Outputs
 
