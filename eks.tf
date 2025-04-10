@@ -11,8 +11,8 @@ module "eks" {
   vpc_id          = module.vpc.vpc_id
   subnet_ids      = module.vpc.public_subnets
 
-  # control_plane_subnet_ids       = module.vpc.intra_subnets
-  bootstrap_self_managed_addons  = false
+  control_plane_subnet_ids = module.vpc.intra_subnets
+  # bootstrap_self_managed_addons  = false
   cluster_endpoint_public_access = true
 
   enable_cluster_creator_admin_permissions = true
