@@ -18,6 +18,9 @@ Terraform apply
 - EC2
 - ci/cd pipeline to deploy resources into aws
 
+### Screenshots
+
+
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 

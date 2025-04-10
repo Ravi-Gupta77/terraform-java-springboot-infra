@@ -7,13 +7,16 @@ module "eks" {
   version = "20.35"
 
   cluster_name                   = "java-springboot-app"
-  cluster_version                = "1.28"
+  cluster_version                = "1.29"
   vpc_id                         = module.vpc.vpc_id
   subnet_ids                     = module.vpc.public_subnets
+  control_plane_subnet_ids       = module.vpc.intra_subnets
   cluster_endpoint_public_access = true
 
   enable_cluster_creator_admin_permissions = true
-
+  eks_managed_node_group_defaults = {
+    instance_types = ["t3.small"]
+  }
   eks_managed_node_groups = {
     main = {
       ami_type       = "AL2023_x86_64_STANDARD"
