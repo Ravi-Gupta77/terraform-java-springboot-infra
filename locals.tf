@@ -21,4 +21,12 @@ locals {
     repository_name         = "${var.env}-java-springboot"
     create_lifecycle_policy = true
   }
+
+  eks = {
+    cluster_name    = "${var.env}-java-springboot-app"
+    cluster_version = var.cluster_version
+
+    cluster_endpoint_public_access           = var.cluster_endpoint_public_access
+    enable_cluster_creator_admin_permissions = var.enable_cluster_creator_admin_permissions
+  }
 }
