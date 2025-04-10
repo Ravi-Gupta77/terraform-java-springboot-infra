@@ -10,7 +10,7 @@ on:
       - main
     paths-ignore:
       - 'README.md'
-      - 'helm/**'
+      - '*.png'
 
 permissions:
   id-token: write
